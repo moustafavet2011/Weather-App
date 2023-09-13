@@ -3,229 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeu De Mémoire</title>
+    <title>Météo</title>
     <link rel="stylesheet" href="./Css/main.css">
 </head>
 <body>
-    <div class="game-win-result">
-        <div class="win-background">
-            <p>TON TEMP EST</p>
-            <span class="win-time"></span>
-            <div class="records">
-
-            </div>
+    <div class="card">
+        <div class="search">
+            <input type="text" class="input" id="city-name" placeholder="Nom de la Ville" spellcheck="true">
+            <button><img src="./Images/search.png" alt="search"></button>
         </div>
-        <span class="game-phrase">BRAVO VOUS AVEZ GANGEZ</span>
-        <span id="recommence-button" class="recommence">Recommence</span>
-        <span id="show-records" class="show-records">Records</span>
-    </div>
-    <div class="game-lose-result">
-        <div class="lose-background"></div>
-        <span class="game-phrase">DOMMAGE VOUS AVEZ PERDU</span>
-        <span id="recommence-button2" class="recommence">Recommence</span>
-    </div>
-    <div class="control-buttons">
-        <span>Commence Le Jeu</span>
-    </div>
-
-    <div class="info-container">
-        <div class="name">
-            Bonjour: <span class="your-name" id="your-name"></span>
+        <div class="error-message">
+            <p>La nom de la ville est incorrect</p>
         </div>
-        <div class="counter">
-            <p id="timer" class="timer">3:00</p>
-        </div>
-        <div class="tries">
-            Essaies: <span class="your-tries" id="you-tries">0</span>
-        </div>
-    </div>
-    <div class="memory-blocks-container">
-        <div class="game-block" data-animals="canard">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/canard.png" alt="canard">
-            </div>
-        </div>
-        <div class="game-block" data-animals="canard">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/canard.png"  alt="canard">
-            </div>
-        </div>
-        <div class="game-block" data-animals="chat">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/chat.png"  alt="chat">
-            </div>
-        </div>
-        <div class="game-block" data-animals="chat">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/chat.png"  alt="chat">
-            </div>
-        </div>
-        <div class="game-block" data-animals="cheval">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/cheval.png"  alt="cheval">
-            </div>
-        </div>
-        <div class="game-block" data-animals="cheval">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/cheval.png"  alt="cheval">
-            </div>
-        </div>
-        <div class="game-block" data-animals="chien">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/chien.png"  alt="chien">
-            </div>
-        </div>
-        <div class="game-block" data-animals="chien">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/chien.png"  alt="chien">
-            </div>
-        </div>
-        <div class="game-block" data-animals="chevre">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/chèvre.png"  alt="chevre">
-            </div>
-        </div>
-        <div class="game-block" data-animals="chevre">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/chèvre.png"  alt="chevre">
-            </div>
-        </div>
-        <div class="game-block" data-animals="dragon">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/dragon.png"  alt="dragon">
-            </div>
-        </div>
-        <div class="game-block" data-animals="dragon">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/dragon.png"  alt="dragon">
-            </div>
-        </div>
-        <div class="game-block" data-animals="eagle">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/eagle.png"  alt="eagle">
-            </div>
-        </div>
-        <div class="game-block" data-animals="eagle">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/eagle.png"  alt="eagle">
-            </div>
-        </div>
-        <div class="game-block" data-animals="escargot">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/escargot.png"  alt="escargot">
-            </div>
-        </div>
-        <div class="game-block" data-animals="escargot">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/escargot.png"  alt="escargot">
-            </div>
-        </div>
-        <div class="game-block" data-animals="moutton">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/moutton.png"  alt="moutton">
-            </div>
-        </div>
-        <div class="game-block" data-animals="moutton">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/moutton.png"  alt="moutton">
-            </div>
-        </div>
-        <div class="game-block" data-animals="lapin">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/lapin.png"  alt="lapin">
-            </div>
-        </div>
-        <div class="game-block" data-animals="lapin">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/lapin.png"  alt="lapin">
-            </div>
-        </div>
-        <div class="game-block" data-animals="ours">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/ours.png"  alt="ours">
-            </div>
-        </div>
-        <div class="game-block" data-animals="ours">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/ours.png"  alt="ours">
-            </div>
-        </div>
-        <div class="game-block" data-animals="poisson">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/poisson.png"  alt="poisson">
-            </div>
-        </div>
-        <div class="game-block" data-animals="poisson">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/poisson.png"  alt="poisson">
-            </div>
-        </div>
-        <div class="game-block" data-animals="poussin">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/poussin.png"  alt="poussin">
-            </div>
-        </div>
-        <div class="game-block" data-animals="poussin">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/poussin.png"  alt="poussin">
-            </div>
-        </div>
-        <div class="game-block" data-animals="singe">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/singe.png"  alt="singe">
-            </div>
-        </div>
-        <div class="game-block" data-animals="singe">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/singe.png"  alt="singe">
-            </div>
-        </div>
-        <div class="game-block" data-animals="tiger">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/tiger.png"  alt="tiger">
-            </div>
-        </div>
-        <div class="game-block" data-animals="tiger">
-            <div class=" face front"></div>
-            <div class="face back">
-                <img src="./Images/tiger.png"  alt="tiger">
+        <div class="weather">
+            <img src="./Images/rain.png" alt="rain" class="weather-icon">
+            <h1 class="temp"></h1>
+            <h2 class="city"></h2>
+            <div class="details">
+                <div class="col1">
+                    <img src="./Images/humidity.png" alt="humidity">
+                    <div>
+                        <p class="humidity"></p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col2">
+                    <img src="./Images/wind.png" alt="wind">
+                    <div>
+                        <p class="wind"></p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <span id="recommence-main" class="recommence">Recommence</span>
-    <audio id="succes" src="./Audio/Tada-sound.mp3" preload="auto"></audio>
-    <audio id="fail" src="./Audio/negative_beeps-6008.mp3" preload="auto"></audio>
-    <audio id="win" src="./Audio/mixkit-small-group-cheer-and-applause-518.wav" preload="auto"></audio>
-    <audio id="lose" src="./Audio/080205_life-lost-game-over-89697.mp3" preload="auto"></audio>
     <script src="./Js/main.js"></script>
 </body>
 </html>
