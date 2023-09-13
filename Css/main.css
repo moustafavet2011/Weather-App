@@ -1,293 +1,119 @@
 *{
     box-sizing: border-box;
-}
-body{
-    font-family: "san serif",Tahoma,Arial;
-    scroll-behavior:smooth;
-}
-.game-win-result,
-.game-lose-result{
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    background-color: beige;
-    position: fixed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    display: none;
 }
-.game-win-result.show,
-.game-lose-result.show{
-    display: inline-block;
-    overflow: hidden;
+body{
+    background-color: #eee;
+    scroll-behavior: smooth;
 }
-.game-win-result .win-background{
-    background-image: url(../Images/giphy.gif);
-    background-repeat: repeat;
-    width: 100%;
-    height: 100%;
-    margin: 20px auto;
-}
-.game-win-result .win-background p{
-    position: absolute;
-    width: fit-content;
-    background-color: #91751de0;
-    top: 50%;
-    left: 50%;
-    padding: 10px 15px;
-    transform: translate(-50%, -50%);
-    font-size: 25px;
-    font-weight: bold;
+.card{
+    width: 90%;
+    max-width: 470px;
     color: #fff;
-    border-radius: 8px;
-    margin-top: -90px;
+    margin: 100px auto 0;
+    padding: 40px 35px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    text-align: center;
 }
-.game-win-result .win-background .win-time{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: #91751de0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #3288bab0;
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search .input{
+    border: 0;
+    outline: 0;
+    color: #555;
+    background: #ebfffc;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 20px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+.search button{
+    background: #ebfffc;
+    border: 0;
+    outline: 0;
     border-radius: 50%;
-    font-size: 30px;
-    text-align: center;
-    line-height: 100px;
-    font-weight: bold;
-    color: #333;
-}
-.game-win-result .game-phrase,
-.game-win-result .recommence,
-.game-lose-result .game-phrase,
-.game-lose-result .recommence{
-    display: block;
-    margin: 20px auto;
-    position: absolute;
-    font-size: 40px;
-    top: 11%;
-    left: 28%;
-    background-color: #333;
-    font-weight: bold;
-    color: #91751d;
-    border: 4px solid #43ce43;
-    width: fit-content;
-    padding: 10px 20px;
-    border-radius: 6px;
-}
-.game-win-result .recommence
-{
-    background-color: #333;
-    color: #43ce43;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
-    float: left;
-    position: absolute;
-    left: 0;
-    top: 80%;
-    margin-top: 55px !important;
-    z-index: 2000;
 }
-.game-lose-result .recommence{
-    background-color: #333;
-    color: #43ce43;
-    cursor: pointer;
-    float: left;
-    position: absolute;
-    left: 38%;
-    top: 75%;
-    margin-top: 55px !important;
-    z-index: 2000;
+.search button img{
+    width: 16px;
 }
-.game-win-result .records{
-    position: absolute;
-    top: 0;
-    left: 20%;
-    background-color: #805600;
-    width: 60%;
-    height: 100%;
-    z-index: 1000;
+.error-message{
+    text-align: left;
+    font-size: 16px;
+    margin-left:10px ;
+    margin-top: 10px;
+    color: red;
     display: none;
 }
-.game-win-result .records .records-span{
-    position: absolute;
-    color: #43ce43;
-    left: 0%;
-    top: 11%;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: #fff;
-    margin: 20px 0px;
-    padding: 10px 15px;
-    overflow: hidden;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
+.weather-icon{
+    width: 170px;
+    margin-top: 17px;
 }
-.game-win-result .records .records-span .span-name{
-    text-align: center;
-    display: inline-block;
-    flex-basis: 20%;
-}
-.game-win-result .records .records-span .span-value{
-    text-align: center;
-    display: block;
-    margin-left: 33px;
-    flex-basis: 70%;
-    font-size: 23px;
-}
-.game-win-result .records.show{
-    display: inline-block;
-}
-.game-win-result .show-records{
-    position: absolute;
-    bottom: 3%;
-    right: 1%;
-    font-size: 30px;
-    font-weight: bold;
-    border: 2px solid;
-    border-radius: 6px;
-    padding: 10px 15px;
-    background-color: #333;
-    color: #43ce43;
-    cursor: pointer;
-}
-.control-buttons{
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background-color: #3288bab0;
-}
-.game-lose-result .lose-background{
-    background-image: url(../Images/getty_140143463_970727970450097_63283.jpg);
-    background-repeat: repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    margin: 20px auto;
-}
-.game-lose-result .lose-background.show{
-display: inline-block;
-}
-.control-buttons span{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
-    color: red;
-    font-weight: bold;
-    border: 1px solid #f6f6f6;
-    border-radius: 10px;
-    background-color:#fff;
-    padding: 15px 25px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.info-container{
-    width: 1080px;
-    padding: 20px;
-    margin: 20px auto 0;
-    background-color: #f6f6f6;
-    font-size: 24px;
-    border: 2px solid #2196f3;
-    overflow: hidden;
-    z-index: 2000;
-    position: relative;
-}
-.info-container .name{
-    float: left;
-    width: 33.3333%;
-}
-.info-container .counter{
-    width: 33.3333%;
-    height: 50px;
-    float: left;
-    text-align: center;
-}
-.info-container .counter .timer{
-    margin: 0;
-    font-size: 40px;
+.weather .temp{
+    font-size: 80px;
     font-weight: 500;
-    border: 1px solid #2196f3;
-    border-radius: 5px;
-    padding: 3px 10px;
-    background-color: #fff;
 }
-
-.info-container .tries{
-    float: left;
-    width: 33.3333%;
-    text-align: right;
+.weather .city{
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: 10px;
 }
-.memory-blocks-container{
+.details{
     display: flex;
-    flex-wrap: wrap;
-    width: 1280px;
-    margin: 20px auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 0 20px;
 }
-.memory-blocks-container.no-clicking{
-    pointer-events: none;
+.details .col1,
+.details .col2{
+    display: flex;
+    align-items: center;
+    text-align: left;
 }
-.memory-blocks-container .game-block{
-    height: 200px;
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    position: relative;
-    flex: 1 0 200px;
-    margin: 0 5px 10px;
+.details .col1 img,
+.details .col2 img{
+    width: 40px;
+    margin-right: 10px;
 }
-.memory-blocks-container .game-block .front{
-    background-color: #333;
-    line-height: 200px;
+.humidity, .wind{
+    font-size: 28px;
+    margin-top: -6px;
 }
-.memory-blocks-container .game-block .front::before{
-    content: "?";
-    font-size:150px;
-    font-weight: bold;
-    color: #fff;
+.weather{
+    display: none
 }
-.memory-blocks-container .game-block .back{
-    background-color: #607d8e;
-    transform: rotateY(180deg);
-
-}
-.memory-blocks-container .game-block .back img{
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 8px;
-}
-.memory-blocks-container .game-block .face{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    backface-visibility: hidden;
-    border: 5px solid #2196f3;
-}
-.memory-blocks-container .game-block.is-flipped,
-.memory-blocks-container .game-block.has-matched{
-    -moz-transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg);
-    pointer-events: none;
-}
-.recommence{
-    position: relative;
-    display: block;
-    margin: 20px auto;
-    width: fit-content;
-    border: 1px solid #43ce43;
-    padding: 10px 20px;
-    font-size: 30px;
-    font-weight: bold;
-    background-color: #333;
-    color: #805600;
-    border-radius: 8px;
-    cursor: pointer;
+@media(max-width:767px){
+    .search .input{
+        padding: 5px 10px;
+        margin-left: -25px;
+    }
+    .search button{
+        border-radius: 20%;
+    }
+    .search button img{
+        width: 40px;
+        padding: 0 5px;
+        margin-top: 11px;
+    }
+    .details .col1{
+        margin-left: -26px;
+    }
+    .details .col2{
+        margin-left: 20px;
+    }
+    .error-message{
+        margin-left: -25px;
+    }
 }
